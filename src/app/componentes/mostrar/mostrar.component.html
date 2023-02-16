@@ -1,40 +1,41 @@
 
-<div class="container pt-4 pb-4 ">
-    <div class="d-grip gap-2-mt-4 mb-3">
-        <a routerLink="/create" class="btn btn-primary" type="button">Añadir nuevo Incidencia</a>
+<div class="container">
+  <h1>Listado de incidencias</h1>
+    <div class="card mb-2" style="background-color: rgb(206, 224, 250);">
+      <div class="card-body">
+        <table class="tabla">
+          <tr style="border-radius:15px">
+            <th class="descripcionTd" scope="col">Descripción</th>
+            <th class="estadoTd" scope="col">Estado</th>
+            <th class="fechaTd" scope="col">Fecha</th>
+            <th class="lugarTd" scope="col">Lugar</th>
+            <th class="posibleArregloTd" scope="col">Posible arreglo</th>
+            <th scope="col">Actualizar estado</th>
+          </tr>
+        </table>
       </div>
+    </div>
 
-    <table class="table">
-        <thead class="thead-primary text-white" style="background-color: #0d6efd;">
-          <tr>
-            <th scope="col">Descripción</th>
-            <th scope="col">Estado</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Lugar</th>
-            <th scope="col">Posible arreglo</th>
-            <th scope="col">Acciones</th>
-          </tr>
-        </thead>
-
-
-        <tbody>
-          <tr *ngFor = "let incidencia of Incidencias" style="background-color: rgb(245, 245, 245);" >
-            <td>{{incidencia.descripcion}}</td>
-            <td>{{incidencia.estado}}</td>
-            <td>{{incidencia.fecha}}</td>
-            <td>{{incidencia.lugar}}</td>
-            <td>{{incidencia.posible_arreglo}}</td>
-
-            <td>
-                <button routerLink="/edit/{{incidencia.id}}" class="btn btn-outline-secondary">Editar</button>
-                <a>&nbsp;</a>
-                <button (click)="deleteRow(incidencia)" class="btn btn-outline-danger">Eliminar</button>
-
-            </td>
-          </tr>
-        </tbody>
-
-        
-      </table>
+    
+  <table>
+    <div class="card">
+      <div class="card-body">
+        <tr *ngFor="let incidencia of Incidencias">
+          <td class="descripcionTd">{{incidencia.descripcion}}</td>
+          <td class="estadoTd">{{incidencia.estado}}</td>
+          <td class="fechaTd">{{incidencia.fecha}}</td>
+          <td class="lugarTd">{{incidencia.lugar}}</td>
+          <td class="posibleArregloTd">{{incidencia.posible_arreglo}}</td>
+          <td>
+            <button routerLink="/edit/{{incidencia.id}}" class="btn btn-outline-secondary">Actualizar estado</button>
+          </td>
+        </tr>
+      </div>
+    </div>
+    
+  </table>
+   
+  
+  
 
 </div>

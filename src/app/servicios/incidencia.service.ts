@@ -60,7 +60,18 @@ export class IncidenciaService {
             estado: incidencia.estado,
             fecha: incidencia.fecha,
             lugar: incidencia.lugar,
-            posible_arreglo: incidencia.posible_arreglo
+            posible_arreglo: incidencia.posible_arreglo,
+            revisada: incidencia.revisada
+          });
+  }
+
+  //Revisado incidencia
+  checkIncidencia (incidencia){
+    return this.angularFirestore
+          .collection("incidencias")
+          .doc(incidencia.id)
+          .update({
+            revisada: incidencia.revisada == true
           });
   }
 

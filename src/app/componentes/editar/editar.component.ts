@@ -27,11 +27,11 @@ export class EditarComponent implements OnInit {
   ) {
     //Añadimos los campos que vayamos a rellenar, y se inicializan en blanco
     this.editForm = this.formBuilder.group({
-    nombre_completo: [''],
-    ciudad:[''],
-    telefono:[''],
-    email:[''],
-    mes_disponible:['']
+    descripcion: [{value: '', disabled: true}],
+    estado:[''],
+    fecha:[{value: '', disabled: true}],
+    lugar:[{value: '', disabled: true}],
+    posible_arreglo:[{value: '', disabled: true}]
     }) }
 
 
@@ -41,11 +41,11 @@ export class EditarComponent implements OnInit {
     this.incidenciaService.getIncidenciaById(id).subscribe(res => {
       this.incidenciaRef = res;
       this.editForm = this.formBuilder.group({
-        nombre_completo :[this.incidenciaRef.nombre_completo],
-        ciudad: [this.incidenciaRef.ciudad],
-        telefono: [this.incidenciaRef.telefono],
-        email: [this.incidenciaRef.email],
-        mes_disponible: [this.incidenciaRef.mes_disponible]
+        descripcion :[this.incidenciaRef.descripcion],
+        estado: [this.incidenciaRef.estado],
+        fecha: [this.incidenciaRef.fecha],
+        lugar: [this.incidenciaRef.lugar],
+        posible_arreglo: [this.incidenciaRef.posible_arreglo]
       })
     })
   }
@@ -54,7 +54,7 @@ export class EditarComponent implements OnInit {
   onSubmit() {
     const id = this.activeRoute.snapshot.paramMap.get('id')
     this.incidenciaService.updateIncidencia(this.editForm.value, id)
-    this.router.navigate([''])
+    this.router.navigate(['show'])
   }
 
 }

@@ -6,4 +6,5 @@ export class Incidencia {
     fecha: string;
     lugar: string;
     posible_arreglo: string;
+    revisada: boolean;
 }

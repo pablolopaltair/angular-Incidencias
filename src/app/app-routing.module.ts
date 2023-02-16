@@ -6,6 +6,7 @@ import { CrearComponent } from './componentes/crear/crear.component';
 import { EditarComponent } from './componentes/editar/editar.component';
 import { MostrarComponent } from './componentes/mostrar/mostrar.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
+import { RevisionComponent } from './componentes/revision/revision.component';
 
 
 
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: '',component:PrincipalComponent},
   {path: 'show',component:MostrarComponent},
   {path: 'create',component:CrearComponent},
-  {path: 'edit/:id',component:EditarComponent}
+  {path: 'edit/:id',component:EditarComponent},
+  {path: 'check', component:RevisionComponent}
 ];
 
 @NgModule({

@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Importación del Modulo de busqueda
 import { PrincipalComponent } from './componentes/principal/principal.component';
+import { RevisionComponent } from './componentes/revision/revision.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PrincipalComponent } from './componentes/principal/principal.component'
     MostrarComponent,
     CrearComponent,
     EditarComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    RevisionComponent
   ],
   imports: [
     BrowserModule,

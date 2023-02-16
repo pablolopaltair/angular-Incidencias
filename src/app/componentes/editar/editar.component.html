@@ -1,40 +1,54 @@
 <div class="container pt-4 pb-4 ">
     
-    <button routerLink="/" class="btn btn-primary mt-2 mb-3">Volver al Inicio</button>
+   
+            <h3>Información de la incidencia</h3>
+            <form [formGroup]="editForm" (ngSubmit)="onSubmit()" novalidate>
+                <div class="mb-3">
+                    <label class="form-label">Fecha de la incidencia</label>
+                    <input formControlName="fecha" type="date" class="form-control" required="">
+                </div>
 
-    <h1>Edición de Incidencia</h1>
-    <form [formGroup]="editForm" (ngSubmit)="onSubmit()" novalidate>
+                <div class="mb-3">
+                    <label class="form-label">Descripción</label>
+                    <textarea name="mitextarea" id="mitextarea" cols="40" rows="5" style="resize: none;"
+                    formControlName="descripcion" class="form-control"  placeholder="Descripción de la incidencia..."  type="text">
+                    </textarea>
+                </div>
 
-        <div class="mb-3">
-            <label class="form-label">Nombre completo</label>
-            <input formControlName="nombre_completo" type="text" class="form-control" required="">
-        </div>
-    
-        <div class="mb-3">
-            <label class="form-label">Ciudad</label>
-            <input formControlName="ciudad" type="text" class="form-control" required="">
+                <div class="mb-3">
+                    <label class="form-label">Lugar</label>
+                    <input formControlName="lugar" type="text" class="form-control" required="">
+                </div>
 
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Telefono</label>
-            <input formControlName="telefono" type="text" class="form-control" required="">
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">E-mail</label>
-            <input formControlName="email" type="text" class="form-control" required="">
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Mes disponible</label>
-            <input formControlName="mes_disponible" type="text" class="form-control" required="">
-        </div>
+                <div class="mb-3">
+                    <label class="form-label">Posible Arreglo</label>
+                    <input  formControlName="posible_arreglo" type="text" class="form-control" required="" >
+                </div><br>
+            </form>
 
 
-        <button [disabled]="!editForm.valid" type="submit" class="btn btn-primary">Crear</button>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Estado de la incidencia </h3>
+                </div>
+                <div class="card-body">
+                    <label class="form-label">Seleccione un nuevo estado para actualizar la incidencia:</label>
+                    <form [formGroup]="editForm" (ngSubmit)="onSubmit()" novalidate>
+                        <div class="mb-3">
+                            
+                            <select formControlName="estado" class="form-select"  placeholder="Estado"  type="text">
+                                <option value="Leido">Leido</option>
+                                <option value="Asignado">Asignado</option>
+                                <option value="Comenzado">Comenzado</option>
+                                <option value="Terminado">Terminado</option>
+                            </select>
+                        </div>
+                        <button [disabled]="!editForm.valid" type="submit" class="btn btn-primary">Actualizar estado</button>
+                    </form>
+                </div>
+              </div>
+
+            
 
 
-
-    </form>
 </div>

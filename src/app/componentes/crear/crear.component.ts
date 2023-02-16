@@ -29,10 +29,11 @@ public incidenciaForm : FormGroup
     //Añadimos los campos que vayamos a rellenar, y se inicializan en blanco
     this.incidenciaForm = this.formbuilder.group({
     descripcion: [''],
-    estado:[''],
+    estado:['Sin estado'],
     fecha:[''],
     lugar:[''],
-    posible_arreglo:['']
+    posible_arreglo:[''],
+    revisada: false //por defecto saldrá revisada falso
     })
   }
 
@@ -42,7 +43,7 @@ public incidenciaForm : FormGroup
   //Acción del botón de crear
   onSubmit() {
     this.incidenciaService.createIncidencia(this.incidenciaForm.value)
-    this.router.navigate([''])
+    this.router.navigate(['show'])
   }
 
  

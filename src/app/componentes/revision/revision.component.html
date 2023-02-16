@@ -1,0 +1,41 @@
+
+<div class="container">
+    <h1>Listado de incidencias</h1>
+      <div class="card mb-2" style="background-color: rgb(206, 224, 250);">
+        <div class="card-body">
+          <table class="tabla">
+            <tr style="border-radius:15px">
+              <th class="descripcionTd" scope="col">Descripción</th>
+              <th class="estadoTd" scope="col">Estado</th>
+              <th class="fechaTd" scope="col">Fecha</th>
+              <th class="lugarTd" scope="col">Lugar</th>
+              <th class="posibleArregloTd" scope="col">Posible arreglo</th>
+              <th scope="col">Revisión</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+  
+      
+    <table>
+      <div class="card">
+        <div class="card-body">
+          <tr *ngFor="let incidencia of Incidencias">
+            <td class="descripcionTd">{{incidencia.descripcion}}</td>
+            <td class="estadoTd">{{incidencia.estado}}</td>
+            <td class="fechaTd">{{incidencia.fecha}}</td>
+            <td class="lugarTd">{{incidencia.lugar}}</td>
+            <td class="posibleArregloTd">{{incidencia.posible_arreglo}}</td>
+            <td>
+              <button (click)="updateRow(incidencia)" class="btn btn-outline-danger">Marcar como revisado</button>
+            </td>
+          </tr>
+        </div>
+      </div>
+      
+    </table>
+     
+    
+    
+  
+  </div>
