@@ -18,7 +18,7 @@
   
       
     <table>
-      <div class="card">
+      <div class="card" style="width: 100%;">
         <div class="card-body">
           <tr *ngFor="let incidencia of Incidencias">
             <td class="descripcionTd">{{incidencia.descripcion}}</td>
@@ -27,7 +27,7 @@
             <td class="lugarTd">{{incidencia.lugar}}</td>
             <td class="posibleArregloTd">{{incidencia.posible_arreglo}}</td>
             <td>
-              <button (click)="updateRow(incidencia)" class="btn btn-outline-secondary">Marcar como revisado</button>
+              <button (click)="updateRow(incidencia)" class="btn btn-outline-secondary">Marcar revisado</button>
             </td>
           </tr>
         </div>
